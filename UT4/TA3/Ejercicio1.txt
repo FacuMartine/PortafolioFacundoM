@@ -1,0 +1,53 @@
+sub-EquipaA:
+dado un nodo si no tiene hijos devuelve 0, 
+en otro caso devuelve la suma entre 1 y el maximo de aplicar altura a los subárboles izquierdo y derecho
+
+Pre condiciones:
+Arbol Binario de busqueda
+    Para todo N
+    los valores del subArbol izquierdo son < valor(N)
+    los valores del subArbol derecho son > valor(N)
+El árbol no está vacío
+
+Post condiciones:
+Se devuelve un entero H >= 0, altura del árbol
+
+altrua(nodo) : devuelve un tipo entero
+Comienzo
+    si nodo.hijoDer == nulo y nodo.hijoIzq == nulo entonces
+        devolver 0
+    finSi
+    Devolver máximo(altura(nodo.hijoIzq),altura(nodo.hijoDer)) + 1
+Fin
+
+
+
+sub-EquipoB:
+dado un nodo recorre el arbol en Preorden sumando a 1 (tamaño del nodo) 
+los tamaños del subárbol izquierdo y derecho 
+
+precondiciones: respeta las reglas abb
+postcondiciones: devuelve el tamaño del árbol (la cantidad de descendientes sumado a la raíz)
+
+casos de prueba
+Dado un abb de prueba:
+se inserta: 5
+tamaño del arbol: 1
+
+se inserta: 5, 6, 8
+tamaño del árbol: 3
+
+se inserta: 4, 2, 7, 1, 5
+tamaño del árbol: 5
+
+tamaño(nodo)
+comienzo 
+	cantidad <- 1
+	si nodo.hijoIzq <> nulo entonces
+		devolver cantidad <- cantidad + tamaño(nodo.hijoIzq)
+	finSi
+	si nodo.hijoDer <> nulo entonces
+		devolver cantidad <- cantidad + tamaño(nodo.hijoDer)
+	finSi
+fin
+
