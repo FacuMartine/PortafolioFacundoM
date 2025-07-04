@@ -1,0 +1,51 @@
+PreCon:
+-Árbol es de tipo primerHijoo, siguienteHermano
+-unaEtiqueta no es nulo
+PostCond:
+-Devuelve el nodo buscado, nulo si no se encuentra.
+
+
+ArbolBuscar(unaEtiqueta)
+comienzo 
+	si raíz == nulo entonces
+		devolver nulo
+	finSi
+	devolver raíz.ElementoBuscar(unaEtiqueta)
+fin 
+
+ElementoBuscar(unEtiqueta)
+comienzo
+	resultado <- nulo              //       O(1)
+	si etiqueta == unaEtiqueta entonces         //       O(1)
+		devolver this         //       O(1)
+	finSi
+	si primerHjo <> nulo entonces       //       O(1)
+		resultado <- primerHijo.ElementoBuscar(unaEtiqueta)       //       O(N)
+		si resultado <> nulo entonces        //       O(1)
+			devolver resultado      //       O(1)
+		finSi
+	finSi 
+	si sigHermano <> nulo entonces         //       O(1)
+		resultado <- sigHermano.ElementoBuscar(unaEtiqueta)        //       O(N)
+	finSi
+	devolver resultado            //       O(1)
+fin
+
+
+Analisis del tiempode ejecución:
+O(N) peor caso
+O(1) mejor caso
+
+ArbolBuscar("VICERRECTORÍA DEL MEDIO UNIVERSITARIO") 
+Compara la tiqueta de la raiz con "VICERRECTORÍA DEL MEDIO UNIVERSITARIO", al no ser iguales y el primer Hijo ser distinto de nulo
+a resultado le asigna primerHijo.ElementoBuscar(VICERRECTORÍA DEL MEDIO UNIVERSITARIO)
+Ahora compara la nueva etiqueta con "VICERRECTORÍA DEL MEDIO UNIVERSITARIO", siendo iguales. Al ser iguales retorna el nodo que contiene la etiqueta. Luego como resultado es distinto de nulo, lo retorna. 
+CANTIDAD COMPARACIONES: 2
+
+ArbolBuscar("asdfghj")
+En este caso la etiqueta no se encuentra dentro del arbol. Por lo tanto recorrerá tanto primer hijo como siguiente hermano recursivamente sin encontrar la etiqueta. Llegaará un punto donde se habrá recorrido todo el árbol sin éxito y devolverá nulo.
+CANTIDAD COMPARACIONES: 11 (cantidad de nodos)
+
+
+
+
