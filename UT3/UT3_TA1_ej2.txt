@@ -1,0 +1,29 @@
+Dar de alta un nuevo artículo al stock
+
+Descripción:
+Dada una lista con todos los productos del supermercado,
+el método agregarProducto recibe un nuevo producto como parámetro y 
+lo agrega al final de la lista. 
+
+
+Precondiciones:
+El producto no es nulo.
+El producto no se encuentra en la lista de productos. (otra opción sería eliminar esta precondición 
+y cada vez que se quiera agregar un producto ya existente se le aumente el stock)
+
+Postcondiciones:
+EL producto es agregado al final de la lista.
+La cantidad de productos aumenta en 1.
+
+Seudocódigo:
+agregarProducto(Nodo nuevoProducto)
+    si primero es nulo
+        entonces primero <- nuevoProducto
+    si no
+        Nodo actual <- primero
+        mientras actual.siguiente != nulo hacer
+            actual <- actual.siguiente
+        fin mientras
+        actual.siguient <- nuevoProducto
+    fin si
+fin
